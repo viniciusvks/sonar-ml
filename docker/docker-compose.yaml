@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+    db:
+        image: mysql:5.7.27
+        container_name: "mysql-sonar"
+        ports:
+            - 3306:3306
+        volumes:
+            - mysql-sonar:/var/lib/mysql
+        environment:
+            TZ: "America/Sao_Paulo"
+            MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+            MYSQL_ROOT_PASSWORD: "rootpwd"
+            MYSQL_DATABASE: 'sonarml'
+
+volumes:
+    mysql-sonar:

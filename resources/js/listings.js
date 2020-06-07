@@ -55,7 +55,7 @@ function bulkMarkAsRead(queryId, listingsIds) {
         success: function (response) {
 
             listingsIds.forEach(function (id) {
-                $('tr#'+id).fadeOut();
+                $('tr#'+id).remove();
             });
 
             $('#toggle-all-listings').prop('checked', false);
@@ -73,7 +73,7 @@ function markAsRead(listing, queryId, listingId) {
         success: function (response) {
 
             console.log(JSON.parse(response));
-            listing.fadeOut();
+            listing.remove();
 
         }
     }

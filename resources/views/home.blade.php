@@ -39,27 +39,21 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($queries as $query)
-                                <tr id="{{$query->id}}">
-                                    <td>
-                                        <a class="search-key text-decoration-none" href="{{ route('query.show', ['query' => $query->id]) }}" data-text="{{ $query->search_key }}">
-                                            {{ $query->search_key }}
-                                        </a>
-                                    </td>
-                                    <td class="new">{{ $query->listings()->unread()->count() }}</td>
-                                    <td>
-                                        <button class="btn sync">
-                                            <i class="fas fa-sync-alt"></i>
-                                        </button>
-                                        <button class="btn delete-query">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                        <button class="btn edit-query">
-                                            <i class="far fa-edit"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            @endforeach
+                                @foreach($queries as $query)
+                                    <tr id="{{$query->id}}">
+                                        <td>
+                                            <a class="search-key text-decoration-none" href="{{ route('query.show', ['query' => $query->id]) }}" data-text="{{ $query->search_key }}">
+                                                {{ $query->search_key }}
+                                            </a>
+                                        </td>
+                                        <td class="new">{{ $query->listings()->unread()->count() }}</td>
+                                        <td>
+                                            <i class="fas fa-sync-alt sync" role="button"></i>
+                                            <i class="far fa-trash-alt" role="button"></i>
+                                            <i class="far fa-edit" role="button"></i>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

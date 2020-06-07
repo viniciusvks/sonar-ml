@@ -55,10 +55,17 @@ function sync(queryId) {
         type: "PATCH",
         url: '/api/query/' + queryId + '/sync',
         beforeSend: function() {
+
             $('tr#'+queryId).find('.fa-sync-alt').addClass('fa-spin');
+
+            spin = setInterval(function() {
+                $('tr#'+queryId).find('.fa-sync-alt').toggleClass('fa-spin');
+            }, 1000);
+
         },
         complete: function() {
             $('tr#'+queryId).find('.fa-sync-alt').removeClass('fa-spin');
+            clearInterval(spin);
         },
         success: function (response) {
 
@@ -69,6 +76,8 @@ function sync(queryId) {
         }
     }
 }
+
+let spin = null;
 
 function editSearchKey(queryId, searchKey) {
 

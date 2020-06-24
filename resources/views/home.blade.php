@@ -49,8 +49,8 @@
                                         <td class="new">{{ $query->listings()->unread()->count() }}</td>
                                         <td>
                                             <i class="fas fa-sync-alt sync" role="button"></i>
-                                            <i class="far fa-trash-alt" role="button"></i>
-                                            <i class="far fa-edit" role="button"></i>
+                                            <i class="far fa-trash-alt delete-query" role="button"></i>
+                                            <i class="far fa-edit edit-query" role="button"></i>
                                         </td>
                                     </tr>
                                 @endforeach
